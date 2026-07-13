@@ -63,6 +63,19 @@ document.querySelectorAll('a[href="index.html#solutions"],a[href="index.html#iss
   link.setAttribute('href','solutions.html');
 });
 
+// 「日本導入」だけでは輸入・納品の印象が強いため、
+// 調達から法規、安全、保守、運用まで含む表現へ全ページで統一する。
+const wordingMap=new Map([
+  ['日本導入','国内導入・社会実装'],
+  ['納期、保証、無線、電池、日文資料。','調達、法規、安全、納期、保証、保守、運用体制。'],
+  ['価格、納期、保証、無線・電池、購買。','調達、法規、安全、価格、納期、保証、保守、運用まで。']
+]);
+
+document.querySelectorAll('h3,th,p').forEach(element=>{
+  const normalized=element.textContent.trim();
+  if(wordingMap.has(normalized)) element.textContent=wordingMap.get(normalized);
+});
+
 document.querySelectorAll('form').forEach(form=>form.addEventListener('submit',event=>{
   event.preventDefault();
   alert('入力内容を確認しました。現在は送信先接続前のため、メールは送信されません。');
