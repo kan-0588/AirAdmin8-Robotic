@@ -13,11 +13,13 @@ if(nav){
     'product-unitree-g1d.html',
     'product-unitree-go2.html'
   ]);
+  const solutionPages=new Set(['solutions.html','task-lab-automation.html']);
+  const supportPages=new Set(['support.html','case-university-selection.html']);
   const navItems=[
-    {href:'solutions.html',label:'ソリューション',active:path==='solutions.html'},
+    {href:'solutions.html',label:'ソリューション',active:solutionPages.has(path)},
     {href:'products-v3.html',label:'製品比較',active:productPages.has(path)},
     {href:'physical-ai.html',label:'技術・SDK',active:path==='physical-ai.html'},
-    {href:'index.html#process',label:'導入プロセス',active:false},
+    {href:'support.html',label:'導入・サポート',active:supportPages.has(path)},
     {href:'contact.html',label:'相談する',active:path==='contact.html',cta:true}
   ];
   nav.innerHTML=navItems.map(item=>{
@@ -48,7 +50,10 @@ document.querySelectorAll('footer div:last-child').forEach(links=>{
   links.innerHTML=[
     ['index.html','ホーム'],
     ['solutions.html','ソリューション'],
+    ['task-lab-automation.html','タスク比較'],
     ['products-v3.html','製品比較'],
+    ['case-university-selection.html','支援事例'],
+    ['support.html','導入・サポート'],
     ['physical-ai.html','技術・SDK'],
     ['contact.html','お問い合わせ']
   ].map(([href,label])=>`<a href="${href}">${label}</a>`).join('');
