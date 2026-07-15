@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-16",
+  "products": [
+    {
+      "id": "agibot-g2",
+      "manufacturer": "agibot",
+      "name": "AGIBOT G2",
+      "category": "mobile-humanoid",
+      "status": "active",
+      "visibility": "public",
+      "salesStatus": "quote_available",
+      "supportStatus": "available",
+      "page": "product-agibot-g2.html",
+      "replacementId": null,
+      "publishedAt": "2026-07-01",
+      "discontinuedAt": null
+    },
+    {
+      "id": "agibot-link-x1",
+      "manufacturer": "agibot",
+      "name": "AGIBOT Link X1",
+      "category": "humanoid-platform",
+      "status": "active",
+      "visibility": "public",
+      "salesStatus": "inquiry_required",
+      "supportStatus": "available",
+      "page": "product-agibot-link-x1.html",
+      "replacementId": null,
+      "publishedAt": "2026-07-01",
+      "discontinuedAt": null
+    },
+    {
+      "id": "agibot-omnihand-pro",
+      "manufacturer": "agibot",
+      "name": "AGIBOT OmniHand Pro",
+      "category": "robot-hand",
+      "status": "active",
+      "visibility": "public",
+      "salesStatus": "inquiry_required",
+      "supportStatus": "available",
+      "page": "product-agibot-omnihand-pro.html",
+      "replacementId": null,
+      "publishedAt": "2026-07-01",
+      "discontinuedAt": null
+    },
+    {
+      "id": "unitree-g1-d",
+      "manufacturer": "unitree",
+      "name": "Unitree G1-D",
+      "category": "humanoid-data-collection",
+      "status": "active",
+      "visibility": "public",
+      "salesStatus": "quote_available",
+      "supportStatus": "available",
+      "page": "product-unitree-g1d.html",
+      "replacementId": null,
+      "publishedAt": "2026-07-01",
+      "discontinuedAt": null
+    },
+    {
+      "id": "unitree-go2",
+      "manufacturer": "unitree",
+      "name": "Unitree Go2",
+      "category": "quadruped",
+      "status": "active",
+      "visibility": "public",
+      "salesStatus": "quote_available",
+      "supportStatus": "available",
+      "page": "product-unitree-go2.html",
+      "replacementId": null,
+      "publishedAt": "2026-07-01",
+      "discontinuedAt": null
+    }
+  ]
+}
