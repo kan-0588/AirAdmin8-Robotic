@@ -105,6 +105,47 @@
     min-width: 0;
   }
 
+  /*
+   * 首页代表产品在旧CSS中两列固定高度となっていたため、
+   * モバイルでは1列の同一サイズへ統一します。
+   * 画像とキャプションの比率を固定し、過剰な余白と縦線を防ぎます。
+   */
+  .hero-products {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: none !important;
+    gap: 20px !important;
+    width: 100%;
+    min-height: 0 !important;
+  }
+
+  .hero-product,
+  .hero-product:first-child {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100%;
+    min-height: 0 !important;
+    aspect-ratio: 4 / 3;
+    border-radius: 22px !important;
+  }
+
+  .hero-product img {
+    width: 100%;
+    height: 100%;
+    padding: 14px !important;
+    object-fit: contain;
+  }
+
+  .hero-product figcaption {
+    right: 12px !important;
+    bottom: 12px !important;
+    left: 12px !important;
+    padding: 12px !important;
+    font-size: 0.78rem !important;
+    line-height: 1.35;
+    text-align: center;
+  }
+
   footer {
     padding: 40px 24px;
   }
