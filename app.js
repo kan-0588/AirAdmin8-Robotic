@@ -65,10 +65,6 @@ document.querySelectorAll('h3,th,p').forEach(element=>{
   if(wordingMap.has(normalized)) element.textContent=wordingMap.get(normalized);
 });
 
-const responsiveStyle=document.createElement('style');
-responsiveStyle.textContent='.a8-role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}@media(max-width:900px){.a8-role-grid{grid-template-columns:1fr}}';
-document.head.appendChild(responsiveStyle);
-
 const page=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 if(page==='index.html'){
   const hero=document.querySelector('main > section');
@@ -82,7 +78,7 @@ if(page==='index.html'){
         <h2>AIロボットを、選ぶ・つなぐ・実装する。</h2>
         <p class="lead">メーカーや製品ありきではなく、課題・環境・予算から複数案を比較。ロボット本体、SDK・ROS、センサー、データ、VLAをつなぎ、PoCから調達・運用まで支援します。</p>
       </div>
-      <div class="a8-role-grid">
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px" class="a8-role-grid">
         <article class="card"><b>01 選ぶ</b><h3>最適な候補を比較する</h3><p>同じタスクに複数の形態・メーカーを並べ、強み、弱み、未確認事項を整理します。</p></article>
         <article class="card"><b>02 つなぐ</b><h3>技術とシステムを接続する</h3><p>本体、ハンド、センサー、SDK、ROS、API、データ収集、VLAを一つの構成にします。</p></article>
         <article class="card"><b>03 実装する</b><h3>現場で使える状態まで進める</h3><p>PoC、評価、調達、安全、初期設定、教育、保守・運用まで一貫して支援します。</p></article>
@@ -101,6 +97,45 @@ if(page==='product-agibot-g2.html'){
     section.innerHTML=`<div class="section-head"><p class="kicker">RELATED NAVIGATION</p><h2>比較・メーカー・開発資料を行き来する。</h2></div><div class="center-cta"><a class="btn primary" href="series-mobile-humanoid.html">同カテゴリと比較する</a><a class="btn ghost" href="manufacturer-agibot.html">AGIBOT全体を見る</a><a class="btn ghost" href="resources.html?manufacturer=agibot&product=g2">G2の開発資料を見る</a></div>`;
     main.appendChild(section);
   }
+}
+
+// Brand guideline: use the official single-color mark in the header, footer and browser tab.
+const brandPath='M 94 126 L 84 138 L 78 154 L 78 170 L 81 180 L 86 189 L 137 240 L 152 249 L 159 251 L 171 252 L 187 248 L 197 242 L 205 234 L 209 228 L 214 215 L 214 210 L 215 209 L 214 195 L 211 186 L 205 176 L 194 166 L 181 160 L 171 159 L 170 158 L 155 160 L 144 165 L 134 173 L 128 181 L 119 203 L 117 205 L 101 189 L 105 179 L 113 165 L 123 154 L 134 146 L 151 139 L 164 137 L 149 122 L 141 118 L 128 115 L 114 116 L 105 119 Z M 237 164 L 230 154 L 219 143 L 209 136 L 198 131 L 195 124 L 187 112 L 174 99 L 160 90 L 147 85 L 132 82 L 116 82 L 115 83 L 105 84 L 93 88 L 83 93 L 72 101 L 64 109 L 54 123 L 49 134 L 45 150 L 45 159 L 44 160 L 45 170 L 34 174 L 24 180 L 17 186 L 8 198 L 5 204 L 1 218 L 1 236 L 5 250 L 13 263 L 23 273 L 37 281 L 53 285 L 64 285 L 80 281 L 94 273 L 108 258 L 115 265 L 129 275 L 140 280 L 154 284 L 174 285 L 175 284 L 182 284 L 199 279 L 215 270 L 230 256 L 237 246 L 242 236 L 246 224 L 247 214 L 248 213 L 247 191 L 242 174 Z M 59 217 L 62 224 L 69 227 L 61 232 L 59 238 L 56 231 L 48 227 L 54 225 Z M 226 169 L 232 181 L 236 198 L 236 212 L 232 229 L 226 241 L 221 248 L 207 261 L 192 269 L 174 273 L 162 273 L 147 270 L 134 264 L 124 257 L 75 208 L 66 203 L 55 202 L 45 206 L 38 213 L 34 222 L 35 235 L 38 241 L 44 247 L 49 250 L 59 252 L 60 251 L 65 251 L 72 248 L 79 241 L 84 232 L 99 247 L 96 254 L 86 264 L 78 269 L 69 272 L 64 272 L 63 273 L 48 272 L 31 264 L 22 255 L 16 245 L 13 235 L 13 219 L 15 211 L 19 203 L 25 195 L 35 187 L 47 182 L 59 181 L 57 173 L 57 150 L 61 136 L 69 122 L 80 110 L 90 103 L 100 98 L 117 94 L 131 94 L 132 95 L 142 96 L 157 102 L 166 108 L 178 120 L 184 129 L 188 140 L 202 146 L 211 152 L 221 162 Z';
+const brandMark=(color='#211714')=>`<svg viewBox="0 0 248 286" aria-hidden="true" focusable="false"><path d="${brandPath}" fill="${color}" fill-rule="evenodd"/></svg>`;
+const logo=document.querySelector('header .logo');
+if(logo){
+  logo.innerHTML=`<span class="brand-mark">${brandMark()}</span><span class="brand-name">AirAdmin8 Robotics</span>`;
+  logo.setAttribute('aria-label','AirAdmin8 Robotics ホーム');
+}
+document.querySelectorAll('footer strong').forEach(el=>{
+  el.innerHTML=`<span class="footer-brand-mark">${brandMark('#ffffff')}</span><span>AirAdmin8 Robotics</span>`;
+});
+const favicon=document.createElement('link');
+favicon.rel='icon';
+favicon.type='image/svg+xml';
+favicon.href=`data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 286"><path d="${brandPath}" fill="#211714" fill-rule="evenodd"/></svg>`)}`;
+document.head.appendChild(favicon);
+const brandStyle=document.createElement('style');
+brandStyle.textContent=`
+header .logo{display:flex;align-items:center;gap:12px}.brand-mark{display:inline-flex;width:42px;height:42px;flex:0 0 42px}.brand-mark svg{width:100%;height:100%}.brand-name{font-weight:900;white-space:nowrap}.footer-brand-mark{display:inline-flex;width:36px;height:36px;margin-right:10px;vertical-align:middle}.footer-brand-mark svg{width:100%;height:100%}footer strong{display:flex;align-items:center}.navy .choice-flow div,.navy .choice-flow h3,.navy .choice-flow p,.navy .choice-flow small{color:#0b2533}.navy .choice-flow b{color:#009bd2}@media(max-width:640px){.brand-name{font-size:1rem}.brand-mark{width:36px;height:36px;flex-basis:36px}}
+`;
+document.head.appendChild(brandStyle);
+
+// Restore the five deployment steps if legacy CSS made the text invisible or empty.
+const process=document.getElementById('process');
+if(process){
+  const cards=[...process.querySelectorAll('.choice-flow > div')];
+  const steps=[
+    ['01','課題整理','目的・現場・成功条件を確認'],
+    ['02','候補比較','形態・メーカー・構成を比較'],
+    ['03','PoC設計','KPI・期間・役割分担を定義'],
+    ['04','調達・導入','見積・安全・初期設定を実施'],
+    ['05','運用・改善','教育・保守・データで継続改善']
+  ];
+  cards.slice(0,5).forEach((card,index)=>{
+    const [num,title,desc]=steps[index];
+    card.innerHTML=`<b>${num}</b><span>${title}</span><small>${desc}</small>`;
+  });
 }
 
 document.querySelectorAll('form').forEach(form=>form.addEventListener('submit',event=>{
