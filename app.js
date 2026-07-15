@@ -65,7 +65,10 @@ document.querySelectorAll('h3,th,p').forEach(element=>{
   if(wordingMap.has(normalized)) element.textContent=wordingMap.get(normalized);
 });
 
-// ホームでは、社会的な目的の直後に「何をする会社か」を明示する。
+const responsiveStyle=document.createElement('style');
+responsiveStyle.textContent='.a8-role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}@media(max-width:900px){.a8-role-grid{grid-template-columns:1fr}}';
+document.head.appendChild(responsiveStyle);
+
 const page=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 if(page==='index.html'){
   const hero=document.querySelector('main > section');
@@ -79,7 +82,7 @@ if(page==='index.html'){
         <h2>AIロボットを、選ぶ・つなぐ・実装する。</h2>
         <p class="lead">メーカーや製品ありきではなく、課題・環境・予算から複数案を比較。ロボット本体、SDK・ROS、センサー、データ、VLAをつなぎ、PoCから調達・運用まで支援します。</p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px" class="a8-role-grid">
+      <div class="a8-role-grid">
         <article class="card"><b>01 選ぶ</b><h3>最適な候補を比較する</h3><p>同じタスクに複数の形態・メーカーを並べ、強み、弱み、未確認事項を整理します。</p></article>
         <article class="card"><b>02 つなぐ</b><h3>技術とシステムを接続する</h3><p>本体、ハンド、センサー、SDK、ROS、API、データ収集、VLAを一つの構成にします。</p></article>
         <article class="card"><b>03 実装する</b><h3>現場で使える状態まで進める</h3><p>PoC、評価、調達、安全、初期設定、教育、保守・運用まで一貫して支援します。</p></article>
@@ -89,7 +92,6 @@ if(page==='index.html'){
   }
 }
 
-// 製品詳細から、同カテゴリ比較・メーカー全体・製品資料へ迷わず移動できるようにする。
 if(page==='product-agibot-g2.html'){
   const main=document.querySelector('main');
   if(main&&!document.getElementById('related-navigation')){
