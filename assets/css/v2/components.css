@@ -1,0 +1,132 @@
+/* ============================================================
+ * AirAdmin8 Robotics V2 / Components
+ * ------------------------------------------------------------
+ * ロゴ、ボタン、カード、フォーム、CTAなど、再利用可能なUIを定義します。
+ * ============================================================ */
+
+header .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  padding: 7px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 11px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--a8-color-primary), var(--a8-color-primary-dark));
+  box-shadow: var(--a8-shadow-sm);
+}
+
+.brand-name {
+  color: var(--a8-color-ink);
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.menu {
+  border: 0;
+  padding: 8px;
+  color: var(--a8-color-primary);
+  background: transparent;
+  font-size: 1.5rem;
+}
+
+.btn {
+  min-height: 48px;
+  padding: 12px 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--a8-color-primary);
+  border-radius: var(--a8-radius-pill);
+  font-weight: 900;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--a8-shadow-sm);
+}
+
+.btn.primary,
+.primary {
+  color: #ffffff;
+  background: var(--a8-color-primary);
+}
+
+.btn.ghost,
+.ghost {
+  color: var(--a8-color-primary);
+  background: #ffffff;
+}
+
+.card,
+.quick-card,
+.principle-card,
+.choice-flow > div,
+.form,
+.case-proof-card {
+  color: var(--a8-color-ink);
+  background: var(--a8-color-surface);
+  border: 1px solid var(--a8-color-border);
+  border-radius: var(--a8-radius-lg);
+  box-shadow: var(--a8-shadow-sm);
+}
+
+.navy .card,
+.dark .card,
+.navy .choice-flow > div,
+.dark .choice-flow > div {
+  color: var(--a8-color-ink);
+  background: #ffffff;
+}
+
+.navy .card p,
+.dark .card p,
+.navy .choice-flow p,
+.dark .choice-flow p,
+.navy .choice-flow small,
+.dark .choice-flow small {
+  color: var(--a8-color-muted);
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  color: var(--a8-color-ink);
+  background: #ffffff;
+  border: 1px solid #cbd9df;
+  border-radius: var(--a8-radius-sm);
+}
+
+.form textarea {
+  min-height: 140px;
+}
+
+.cookie-consent,
+.cookie-banner,
+[data-cookie-banner] {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  width: min(420px, calc(100vw - 32px));
+  padding: 20px;
+  color: var(--a8-color-ink);
+  background: #ffffff;
+  border: 1px solid var(--a8-color-border);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(6, 25, 35, 0.18);
+}
