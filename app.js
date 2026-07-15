@@ -19,6 +19,7 @@
     'analytics.js',
     'scripts/navigation.js',
     'scripts/page-enhancements.js',
+    'scripts/resources-search.js',
     'scripts/contact-form.js'
   ];
 
