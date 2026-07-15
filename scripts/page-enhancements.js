@@ -67,6 +67,64 @@
   }
 
   /**
+   * ホームへ、購入できる支援内容と安全・保守の入口を追加します。
+   * 技術情報だけでなく、具体的な成果物と責任範囲を早い段階で示します。
+   */
+  function addBusinessReadySectionToHome() {
+    if (currentPage !== 'index.html' || document.getElementById('business-ready')) return;
+
+    const quickEntry = document.getElementById('quick-entry');
+    const main = document.querySelector('main');
+    if (!main) return;
+
+    const section = document.createElement('section');
+    section.id = 'business-ready';
+    section.className = 'section soft';
+    section.innerHTML = `
+      <div class="section-head">
+        <p class="kicker">BUSINESS READY</p>
+        <h2>製品だけでなく、導入の進め方まで選べます。</h2>
+        <p class="lead">
+          大学研究、巡回・点検PoC、VLAデータ収集を標準パッケージ化。
+          保証、修理、安全、支援範囲も事前に整理します。
+        </p>
+      </div>
+      <div class="cards">
+        <article>
+          <h3>大学研究導入</h3>
+          <p>製品比較、SDK、正式見積、二社見積、大学購買、検収まで。</p>
+          <a href="package-university-research.html">支援内容を見る →</a>
+        </article>
+        <article>
+          <h3>巡回・点検PoC</h3>
+          <p>現場条件、候補比較、KPI、経路、センサー、評価方法まで。</p>
+          <a href="package-inspection-poc.html">PoC構成を見る →</a>
+        </article>
+        <article>
+          <h3>VLAデータ収集</h3>
+          <p>遠隔操作、機器、データ形式、品質評価、学習環境への接続まで。</p>
+          <a href="package-vla-data.html">収集構成を見る →</a>
+        </article>
+        <article>
+          <h3>安全・保守</h3>
+          <p>保証、初期不良、修理、部品、SDK支援、責任範囲を明確化。</p>
+          <a href="safety-support.html">支援範囲を見る →</a>
+        </article>
+      </div>
+      <div class="center-cta">
+        <a class="btn primary" href="service-packages.html">支援パッケージを比較する</a>
+        <a class="btn ghost" href="contact.html?intent=package">自社に合う進め方を確認する</a>
+      </div>
+    `;
+
+    if (quickEntry) {
+      quickEntry.insertAdjacentElement('afterend', section);
+    } else {
+      main.appendChild(section);
+    }
+  }
+
+  /**
    * AGIBOT G2ページへ比較、メーカー、開発資料の導線を追加します。
    */
   function addRelatedNavigationToG2() {
@@ -124,6 +182,7 @@
 
   normalizeLegacyLinks();
   addRoleSectionToHome();
+  addBusinessReadySectionToHome();
   addRelatedNavigationToG2();
   normalizeProcessSection();
 })();
