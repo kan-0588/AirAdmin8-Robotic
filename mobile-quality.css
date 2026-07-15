@@ -1,0 +1,103 @@
+/* ============================================================
+ * AirAdmin8 Robotics / Mobile Quality
+ * ------------------------------------------------------------
+ * スマートフォンで発生していた見出しの不自然な改行、
+ * カードの極端な細幅化、濃色背景上の低コントラストを補正します。
+ * ============================================================ */
+
+@media (max-width: 700px) {
+  /* 見出しは日本語の語感を保ち、1文字だけ残る改行を抑えます。 */
+  h1,
+  h2,
+  h3 {
+    word-break: auto;
+    overflow-wrap: anywhere;
+    line-break: strict;
+  }
+
+  .subhero h1,
+  .section h2,
+  .hero-v6 h1 {
+    font-size: clamp(2.35rem, 10.5vw, 3.55rem);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+
+  /* 絞り込みUIは画面幅を使い切り、上下余白を圧縮します。 */
+  .filter-panel,
+  .resource-filter,
+  form[role="search"] {
+    width: 100%;
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .filter-panel select,
+  .filter-panel input,
+  .resource-filter select,
+  .resource-filter input {
+    min-height: 52px;
+    font-size: 1rem;
+  }
+
+  /* 2列配置で細くなっていたカードを1列へ戻します。 */
+  .choice-flow,
+  .product-strip,
+  .products-grid,
+  .product-grid,
+  .resource-grid,
+  .compare-grid,
+  .hero-products,
+  .hero-product-grid,
+  .hero-visual-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .choice-flow > div,
+  .product-strip > article,
+  .products-grid > article,
+  .product-grid > article {
+    min-width: 0;
+    width: 100%;
+  }
+
+  /* 濃色セクションでは本文色を白系に固定し、読めない状態を防ぎます。 */
+  .navy .choice-flow div,
+  .navy .choice-flow h3,
+  .navy .choice-flow p,
+  .navy .choice-flow small,
+  .dark .choice-flow div,
+  .dark .choice-flow h3,
+  .dark .choice-flow p,
+  .dark .choice-flow small {
+    color: #f4fbfe !important;
+  }
+
+  .navy .choice-flow div,
+  .dark .choice-flow div {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.24);
+  }
+
+  .navy .choice-flow b,
+  .dark .choice-flow b {
+    color: #55d5ff !important;
+  }
+
+  /* CTAが続く箇所は余白を揃え、巨大な空白を作りません。 */
+  .center-cta,
+  .actions {
+    margin-top: 28px;
+  }
+
+  .center-cta .btn + .btn,
+  .actions .btn + .btn {
+    margin-top: 10px;
+  }
+
+  /* フッターはリンクを1列にし、文字切れを防ぎます。 */
+  footer div:last-child {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+}
