@@ -123,6 +123,22 @@ footer strong {
   color: var(--a8-color-muted);
 }
 
+/*
+ * 濃色セクション内の通知カードは背景が明るいため、
+ * 親セクションから継承した白文字を明示的に上書きします。
+ */
+.navy .notice,
+.dark .notice {
+  color: var(--a8-color-ink) !important;
+  background: #f4fbfe;
+  border-left-color: var(--a8-color-primary);
+}
+
+.navy .notice p,
+.dark .notice p {
+  color: var(--a8-color-ink) !important;
+}
+
 .form input,
 .form select,
 .form textarea {
