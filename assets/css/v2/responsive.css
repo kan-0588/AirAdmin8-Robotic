@@ -28,8 +28,10 @@
     gap: 28px;
   }
 
-  footer > div:last-child {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  body footer .footer-links {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px 20px !important;
   }
 }
 
@@ -146,13 +148,39 @@
     text-align: center;
   }
 
+  /*
+   * 旧CSSの1列指定より優先し、リンクを2列で安定表示します。
+   * 長いラベルは自然改行させ、フッター全体の高さを抑えます。
+   */
   footer {
-    padding: 40px 24px;
+    padding: 36px 24px 40px;
+    gap: 22px;
   }
 
-  footer > div:last-child {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px 20px;
+  footer > div:first-child {
+    display: grid;
+    gap: 10px;
+  }
+
+  footer > div:first-child p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  body footer .footer-links {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px 16px !important;
+  }
+
+  body footer .footer-links a {
+    min-width: 0;
+    padding: 8px 0;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .cookie-consent,
