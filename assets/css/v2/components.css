@@ -1,7 +1,7 @@
 /* ============================================================
  * AirAdmin8 Robotics V2 / Components
  * ------------------------------------------------------------
- * ロゴ、ボタン、カード、フォーム、CTAなど、再利用可能なUIを定義します。
+ * ロゴ、ボタン、カード、フォーム、検索UIなど、再利用可能なUIを定義します。
  * ============================================================ */
 
 header .logo {
@@ -20,8 +20,18 @@ header .logo {
   place-items: center;
   border-radius: 11px;
   color: #ffffff;
-  background: linear-gradient(135deg, var(--a8-color-primary), var(--a8-color-primary-dark));
+  background: linear-gradient(
+    135deg,
+    var(--a8-color-primary),
+    var(--a8-color-primary-dark)
+  );
   box-shadow: var(--a8-shadow-sm);
+}
+
+.brand-mark svg,
+.footer-brand-mark svg {
+  width: 100%;
+  height: 100%;
 }
 
 .brand-name {
@@ -30,6 +40,19 @@ header .logo {
   font-weight: 900;
   line-height: 1.2;
   white-space: nowrap;
+}
+
+.footer-brand-mark {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  flex: 0 0 34px;
+  margin-right: 10px;
+}
+
+footer strong {
+  display: flex;
+  align-items: center;
 }
 
 .menu {
@@ -49,6 +72,7 @@ header .logo {
   border: 1px solid var(--a8-color-primary);
   border-radius: var(--a8-radius-pill);
   font-weight: 900;
+  cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -115,6 +139,25 @@ header .logo {
   min-height: 140px;
 }
 
+.resource-search-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+}
+
+.resource-search-actions .btn {
+  min-width: 180px;
+}
+
+.resource-search-status {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--a8-color-muted);
+  font-size: 0.9rem;
+}
+
 .cookie-consent,
 .cookie-banner,
 [data-cookie-banner] {
@@ -129,4 +172,15 @@ header .logo {
   border: 1px solid var(--a8-color-border);
   border-radius: 18px;
   box-shadow: 0 24px 60px rgba(6, 25, 35, 0.18);
+}
+
+@media (max-width: 640px) {
+  .resource-search-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .resource-search-actions .btn {
+    width: 100%;
+  }
 }
